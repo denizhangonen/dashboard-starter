@@ -1,15 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-
 import Sidebar from '@/layout/Sidebar/Sidebar';
 import Header from '@/layout/Header/Header';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
@@ -17,7 +12,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Dashboard Starter',
-  description: 'Next.js + shadcn/ui admin template',
+  description: 'Next.js + shadcn/ui',
 };
 
 export default function RootLayout({
@@ -34,7 +29,7 @@ export default function RootLayout({
           <Sidebar />
           <div className="flex flex-col">
             <Header />
-            <main className="flex-1 p-4">{children}</main>
+            <main className="p-4">{children}</main>
           </div>
         </div>
       </body>
