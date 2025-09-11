@@ -1,4 +1,8 @@
+'use client';
+
 import Link from 'next/link';
+
+import { usePathname } from 'next/navigation';
 
 const nav = [
   { href: '/', label: 'Dashboard' },
@@ -12,6 +16,7 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ inDrawer = false }: SidebarProps) {
+  const pathname = usePathname();
   return (
     <aside
       className={
@@ -26,7 +31,9 @@ export default function Sidebar({ inDrawer = false }: SidebarProps) {
           <Link
             key={i.href}
             href={i.href}
-            className="block px-3 py-2 rounded hover:bg-white/5"
+            className={`block px-3 py-2 rounded hover:bg-white/5 ${
+              pathname === i.href ? 'bg-white/10 font-semibold' : ''
+            }`}
           >
             {i.label}
           </Link>
